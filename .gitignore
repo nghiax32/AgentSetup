@@ -1,0 +1,8 @@
+# ----- Always ignore -----
+.claude/.context-cache/
+.claude/settings.local.json
+
+# ----- Real projects (uncomment) -----
+# .claude/
+# CLAUDE.md
+# CLAUDE.local.md
