@@ -4,7 +4,7 @@ A reusable [Claude Code](https://claude.com/claude-code) setup: project rules, h
 
 ## Why
 
-Out of the box, a coding agent tends to act on questions, commit and push without being asked, stage unrelated files, and report what it believes happened rather than what did. This setup turns those preferences into explicit rules that the agent reads before it acts, and adds hooks so that rule changes take effect in a running session without a restart.
+Out of the box, a coding agent tends to act on questions, commit and push without being asked, stage unrelated files, make improvements nobody requested, and report what it believes happened rather than what did. This setup turns those preferences into explicit rules that the agent reads before it acts, and adds hooks so that rule changes take effect in a running session without a restart.
 
 ## Layout
 
@@ -26,6 +26,7 @@ One rule per file, listed in `CLAUDE.md` so the agent knows which to read for a 
 | `commit-pr-only-when-asked.md` | Commit, push and PR operations only on a specific request, one step at a time. Stage files by path; never commit `.gitignore` unless asked |
 | `commit-authorship.md` | Commits are authored by the person accountable for the change; commit messages and PR text carry no tool-generated trailers or footers |
 | `commit-pr-report-table.md` | Verify the real git and GitHub state before reporting a commit or PR, and report it as a fixed table |
+| `minimal-change.md` | Change only what the request needs and review the diff before reporting; report defects and improvements found outside the request instead of fixing them |
 
 ### Hooks (`.claude/hooks/`)
 
