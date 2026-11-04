@@ -11,8 +11,8 @@ Out of the box, a coding agent tends to act on questions, commit and push withou
 | Path | Contents | Use for |
 |---|---|---|
 | `CLAUDE.md`, `.claude/` | The common setup: rules, context hook and status line | Every project, including personal ones |
-| `user/` | User-level Claude Code settings and the script that applies them | Once per machine |
-| `optional/client-context/` | Optional client context tracking, with its own installer | Client projects only |
+| `user/` | User-level Claude Code settings that everyone should apply, and the script that applies them | Once per machine |
+| `optional/` | Add-ons you install only when needed, each with its own installer and README stating its scope | See below |
 
 ## What's included
 
@@ -55,9 +55,12 @@ user/apply.sh
 
 The script deep-merges `user/settings.json` into `~/.claude/settings.json`, keeps every other setting, and writes a timestamped backup before changing anything. It takes effect in running sessions.
 
-## Optional: client context tracking
+## Optional add-ons (`optional/`)
 
-For client projects, `optional/client-context/` adds a rule and a hook that record client messages verbatim in dated logs, keep a cited summary of the current project state, and make the agent re-check it before any client-facing output. See [`optional/client-context/README.md`](optional/client-context/README.md).
+| Add-on | Scope | What it does |
+|---|---|---|
+| [`client-context/`](optional/client-context/README.md) | One project | Records client messages verbatim in dated logs, keeps a cited summary of the current project state, and makes the agent re-check it before any client-facing output |
+| [`notion-mcp/`](optional/notion-mcp/README.md) | The whole machine | Installs a Notion MCP server from its zip and registers it at user scope, so every project can read Notion pages |
 
 ## Usage
 
