@@ -73,12 +73,13 @@ Clone the repository and open it with Claude Code. The settings in `.claude/sett
 
 ### In another repository
 
-Copy the files from the branch you need. To keep them out of that repository's history, use the local variants that Claude Code also reads:
+Copy the files. To keep them out of that repository's history, use the local variants that Claude Code also reads:
 
 ```bash
 SRC=path/to/AgentSetup
 DST=path/to/project
 
+mkdir -p "$DST/.claude"
 cp -a "$SRC/.claude/rules" "$SRC/.claude/hooks" "$SRC/.claude/statusline.sh" "$DST/.claude/"
 cp -a "$SRC/.claude/settings.json" "$DST/.claude/settings.local.json"
 cp -a "$SRC/CLAUDE.md" "$DST/CLAUDE.local.md"
